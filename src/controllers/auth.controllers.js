@@ -27,9 +27,10 @@ export async function signIn (req, res) {
 
         const { id, password:hash } = isUser.rows[0]
         const isPassword = bcrypt.compareSync(password, hash)
-        if (!isPassword) return res.sendStatus(401)
+        if (!isPassword) return res.sendStatus(422)
 
         const token = uuidV4()
+        await db.query(`INSERT INTO sessions (token, user_id) VALUES ($1, $2)`, [token, existe.rows[0].id])
         return res.status(200).send( { token:token })
     } catch (error) {
         res.status(500).send(error.message)
