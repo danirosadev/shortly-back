@@ -199,6 +199,7 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 --
 
 INSERT INTO public.users VALUES (1, 'João', 'joao@driven.com', '$2b$10$jr0iCCoaEhgQOP8zVQwhwuJbzrrNC2ycdi7i6jtht3f0FV.kLroFC');
+INSERT INTO public.users VALUES (2, 'Jose', 'jose@driven.com', '$2b$10$nlg.832AOeNjBEQEEDsmtOvIXMZH5wsPg30hUDo/zvohavwz3NUc6');
 
 
 --
@@ -226,7 +227,7 @@ SELECT pg_catalog.setval('public.user_urls_id_seq', 1, false);
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 1, true);
+SELECT pg_catalog.setval('public.users_id_seq', 2, true);
 
 
 --
